@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>documentation page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav id="navbar">
+            <header id="navheader">
+                <h2>ESNext DOCUMENTATION</h2>
+            </header>
+            <ol id="nav-container">
+                <li><a href="#Introduction_to_ESNext" class="nav-link">Introduction to ESNext</a></li>
+                <li ><a href="#Array.prototype.{flat,flatMap}" class="nav-link ">Array.prototype.{flat,flatMap}</a></li>
+                <li><a href="#Optional_catch_binding" class="nav-link ">Optional catch binding</a></li>
+                <li><a href="#Object.fromEntries()" class="nav-link ">Object.fromEntries()</a></li>
+                <li><a href="#String.prototype" class="nav-link ">String.prototype</a></li>
+                <li><a href="#Symbol.prototype.description" class="nav-link ">Symbol.prototype.description</a></li>
+                <li><a href="#JSON_improvements" class="nav-link ">JSON improvements</a></li>
+                <li><a href="#Well-formed_JSON.stringify()" class="nav-link ">Well-formed JSON.stringify()
+</a></li>
+                <li><a href="#Function.prototype.toString()" class="nav-link ">Function.prototype.toString()</a></li>
+            </ol>
+        </nav>
+
+        <main id="main-doc">
+            <section class="main-section" id="Introduction_to_ESNext">
+                <header>
+                    <h1>
+                        Introduction to ESNext</h1>
+                </header>
+                <article>
+                <p>Before we tackle ESNext, let us take a flashback at what and how ESNext came to existence. Whenever you read about JavaScript you'll inevitably see one of these terms:</p>
+                    <ul>
+                    <li>ES3</li>
+                        <li>ES5</li>
+                        <li>ES6</li>
+                        <li>ES7</li>
+                        <li>ES8</li>
+                        <li>ES2015</li>
+                        <li>ES2016</li>
+                        <li>ES2017</li>
+                        <li>ECMAScript 2017</li>
+                        <li>ECMAScript 2016</li>
+                        <li>ECMAScript 2015</li>
+                    </ul>
+                    <br>
+                    <p>What do they mean? They are all referring to a standard, called ECMAScript. ECMAScript is the standard upon which JavaScript is based, and it's often abbreviated to ES.</p>
+                    <p>Beside JavaScript, other languages implement(ed) ECMAScript, including:</p>
+                    <ul>
+                    <li>ActionScript (the Flash scripting language), which is losing popularity since Flash will be
+officially discontinued in 2020</li>
+                    <li>JScript (the Microsoft scripting dialect), since at the time JavaScript was supported only
+by Netscape and the browser wars were at their peak, Microsoft had to build its own
+version for Internet Explorer</li>
+                    </ul>
+                    <p>but of course JavaScript is the most popular and widely used implementation of ES. Why this weird name? <em>Ecma International</em> is a Swiss standards association who is in charge
+of defining international standards. When JavaScript was created, it was presented by Netscape and Sun Microsystems to Ecma
+and they gave it the name ECMA-262 alias ECMAScript.
+</p>
+                    <p><a class="ext-link"  href="https://web.archive.org/web/20070916144913/http://wp.netscape.com/newsref/pr/newsrelease67.html">This press release by Netscape and Sun Microsystems</a>
+                    s (the maker of Java) might help figure
+out the name choice, which might include legal and branding issues by Microsoft which was in
+the committee, according to Wikipedia.
+</p>
+                    <p>After IE9, Microsoft stopped branding its ES support in browsers as JScript and started calling
+it JavaScript (at least, I could not find references to it any more). So as of 201x, the only popular language supporting the ECMAScript spec is JavaScript.
+</p>
+                    <h3>Current ECMAScript version</h3>
+                    <p>The current ECMAScript version is ES2018. It was released in June 2018</p>
+                    <h3>What is TC39</h3>
+                    <p>TC39 is the committee that evolves JavaScript. The members of TC39 are companies involved in JavaScript and browser vendors, including
+Mozilla, Google, Facebook, Apple, Microsoft, Intel, PayPal, SalesForce and others.
+Every standard version proposal must go through various stages, which are explained <a class="ext-link" href="https://tc39.github.io/process-document/">here</a>.
+</p>
+                    <h3>ES Versions</h3>
+                    <p>I found it puzzling why sometimes an ES version is referenced by edition number and
+sometimes by year, and I am confused by the year by chance being -1 on the number, which
+adds to the general confusion around JS/ES. Before ES2015, ECMAScript specifications were commonly called by their edition. So ES5 is
+the official name for the ECMAScript specification update published in 2009.
+ </p>
+                    <p>Why does this happen? During the process that led to ES2015, the name was changed from
+ES6 to ES2015, but since this was done late, people still referenced it as ES6, and the
+community has not left the edition naming behind - the world is still calling ES releases by
+edition number.
+</p><p>Full details of all the releases can be found in Flavio Copes Free eBooks from which the contents of this documentation is derived.</p>
+                    <p>Now lets go ahead with ESNext and explore the new cool features it has.</p>
+     <br>
+                    <h3>ESNext</h3>
+                <p>What's next? ESNext.</p>
+                <p>ESNext is a name that always indicates the next version of JavaScript. The current ECMAScript version is ES2018. It was released in June 2018. Historically JavaScript editions have been standardized during the summer, so we can expect
+ECMAScript 2019 to be released in summer 2019. So at the time of writing, ES2018 has been released, and ESNext is ES2019.
+</p><p>Proposals to the ECMAScript standard are organized in stages. Stages 1-3 are an incubator of
+new features, and features reaching Stage 4 are finalized as part of the new standard. At the time of writing we have a number of features at Stage 4. I will introduce them in this
+section. The latest versions of the major browsers should already implement most of those.Some of those changes are mostly for internal use, but it's also good to know what is going on.
+</p>
+                    <p>There are other features at Stage 3, which might be promoted to Stage 4 in the next few
+months, and you can check them out on this <a class="ext-link" href="https://github.com/tc39/proposals" target="_blank">GitHub repository</a>.
+</p>
+
+                </article>
+            </section>
+
+            <section class="main-section" id="Array.prototype.{flat,flatMap}">
+                <header>
+                    <h1>
+                        Array.prototype.{flat,flatMap}</h1>
+                </header>
+                <article>
+                    <p><code>flat()</code> is a new array instance method that can create a one-dimensional array from a
+                        multidimensional array.</p> Example:<code>['dog',['sheep','wolf']].flat() = //[ 'dog', 'sheep', 'wolf' ]
+                    </code>. <p>By default it only "flats" up to one level, but you can add a parameter to set the number of
+                        levels you want to flat the array to. Set it to Infinity to have unlimited levels:</p>
+                    <p><code>['Dog', ['Sheep', ['Wolf']]].flat()</code></p>
+                    <p><code>//['Dog', 'Sheep', ['Wolf']]</code></p>
+                    <br>
+                    <p><code>['Dog', ['Sheep', ['Wolf']]].flat(2)</code></p>
+                    <p><code>//['Dog', 'Sheep', 'Wolf']</code></p>
+                    <br>
+                    <p><code>['Dog', ['Sheep', ['Wolf']]].flat(Infinity)</code></p>
+                    <p><code>//['Dog', 'Sheep', 'Wolf']</code></p>
+                 <p>If you are familiar with the JavaScript<code>map()</code>  method of an array, you know that using it you
+can execute a function on every element of an array.</p>
+                    <p><code>flatMap()</code> is a new Array instance method that combines <code>flat()</code> with <code>map()</code>. It's useful
+when calling a function that returns an array in the map() callback, but you want your resulted
+array to be flat:</p>
+                
+                    <p><code> ['My dog', 'is awesome'].map(words => words.split(' '))
+</code></p>
+                    <p><code>//[ [ 'My', 'dog' ], [ 'is', 'awesome' ] ]</code></p>
+                    <br>
+                    <p><code>['My dog', 'is awesome'].flatMap(words => words.split(' '))</code></p>
+                    <p><code>//[ 'My', 'dog', 'is', 'awesome' ]
+</code></p>
+                </article>
+            </section>
+            <section class="main-section" id="Optional_catch_binding">
+                <header>
+                    <h1>
+                        Optional catch binding</h1>
+                </header>
+                <article>
+                 <p>Sometimes we dont need to have a parameter binded to the catch block of a try/catch.
+We previously had to do:</p>
+                    <p><code>try {
+</code></p>
+                    <p><code>//...</code></p>
+                    <p><code>} catch (e) {
+</code></p>
+                    <p><code>//handle error</code></p>
+                    <p><code>}</code></p>
+                    <p>Even if we never had to use e to analyze the error. We can now simply omit it:</p>
+                    <p><code>try {
+</code></p>
+                    <p><code>//...</code></p>
+                    <p><code>} catch {
+</code></p>
+                    <p><code>//handle error</code></p>
+                    <p><code>}</code></p>
+                </article>
+            </section>
+            
+            <section class="main-section" id="Object.fromEntries()">
+                <header>
+                    <h1>Object.fromEntries()
+                        </h1>
+                </header>
+                <article>
+              <p>Objects have an <code>entries()</code> method, since ES2017.
+</p><p>It returns an array containing all the object own properties, as an array of <code>[key, value]</code>  pairs:
+</p>
+                    <p><code>const person = { name: 'Fred', age: 87 }
+</code></p>
+                    <p><code>Object.entries(person) // [['name', 'Fred'], ['age', 87]]</code></p>
+                    <p>ES2019 introduces a new Object.fromEntries() method, which can create a new object from
+such array of properties:</p>
+                    <p><code>const person = { name: 'Fred', age: 87 }</code></p>
+                    <p><code>const entries = Object.entries(person)
+</code></p>
+                    <p><code>const newPerson = Object.fromEntries(entries)</code></p>
+                    <p><code>person !== newPerson //true</code></p>
+                </article>
+            </section>
+            
+            <section class="main-section" id="String.prototype">
+                <header>
+                    <h1>String.prototype
+</h1>
+                </header>
+                <article>
+          <p>This feature has been part of v8/Chrome for almost a year now, and it's going to be
+standardized in ES2019.
+</p>
+                    <h3>trimStart()</h3>
+                    <p>Return a new string with removed white space from the start of the original string</p>
+                    <p><code>'Testing'.trimStart() //'Testing'</code></p>
+                    <p><code>' Testing'.trimStart() //'Testing'</code></p>
+                    <p><code>' Testing '.trimStart() //'Testing '</code></p>
+                    <p><code>'Testing'.trimStart() //'Testing'
+</code></p>
+                    <h3>trimEnd()</h3>
+                    <p>Return a new string with removed white space from the end of the original string</p>
+                    <p><code>'Testing'.trimEnd() //'Testing'
+</code></p>
+                    <p><code>' Testing'.trimEnd() //' Testing'</code></p>
+                    <p><code>' Testing '.trimEnd() //' Testing'</code></p>
+                    <p><code>'Testing '.trimEnd() //'Testing'
+</code></p>
+                   
+                </article>
+            </section>
+            
+            <section class="main-section" id="Symbol.prototype.description">
+                <header>
+                    <h1>
+                        Symbol.prototype.description</h1>
+                </header>
+                <article>
+                    <p>You can now retrieve the description of a symbol by accessing its description property
+instead of having to use the toString() method:</p>
+                <p><code>const testSymbol = Symbol('Test')</code></p>
+                <p><code>testSymbol.description // 'Test'</code></p>
+                    
+                </article>
+            </section>
+            
+            <section class="main-section" id="JSON_improvements">
+                <header>
+                    <h1>
+                        JSON improvements</h1>
+                </header>
+                <article>
+           <p>Before this change, the line separator (\u2028) and paragraph separator (\u2029) symbols
+were not allowed in strings parsed as JSON.
+</p><p>Using JSON.parse(), those characters resulted in a SyntaxError but now they parse correctly,
+as defined by the JSON standard.
+</p>
+                </article>
+            </section>
+            
+            <section class="main-section" id="Well-formed_JSON.stringify()">
+                <header>
+                    <h1>
+                        Well-formed JSON.stringify()
+</h1>
+                </header>
+                <article>
+             <p>Fixes the <code>JSON.stringify()</code> output when it processes surrogate UTF-8 code points (U+D800
+to U+DFFF).</p> <p>Before this change calling <code>JSON.stringify()</code> would return a malformed Unicode character (a
+"�").
+</p><p>Now those surrogate code points can be safely represented as strings using <code>JSON.stringify()</code>
+ , and transformed back into their original representation using <code>JSON.parse()</code> .
+</p>
+                </article>
+            </section>
+            
+            <section class="main-section" id="Function.prototype.toString()">
+                <header>
+                    <h1>
+                        Function.prototype.toString()</h1>
+                </header>
+                <article>
+<p>Functions have always had an instance method called <code>toString()</code> which return a string
+containing the function code.
+</p>
+                    <p>ES2019 introduced a change to the return value to avoid stripping comments and other
+characters like whitespace, exactly representing the function as it was defined.
+</p><p>If previously we had</p>
+                    <p><code>function /* this is bar */ bar () {}</code></p>
+                    <p>The behavior was this:</p>
+                    <p><code>bar.toString() //'function bar() {}</code></p>
+                    <p>now the new behavior is:</p>
+                    <p><code>bar.toString(); // 'function /* this is bar */ bar () {}'</code></p>
+                </article>
+            </section>
+
+
+        </main>
+        
+
+    </div>
+
+</body></html>

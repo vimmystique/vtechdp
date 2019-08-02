@@ -1,0 +1,134 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+    line-height: 1.5;
+
+}
+body{
+    font-family: sans-serif;
+}
+.container{
+    display: grid;
+    grid-template-areas: auto auto auto auto auto;
+}
+h2{
+    
+}
+.title{
+    background-color: #cccc99 !important ;
+    color: black;
+}
+.title:hover{
+    background-color: #444422 !important ;
+    color: white !important;
+}
+#navbar{
+    grid-area: 1/span 1/1/span 8;
+    background-color: red;
+    background-color: #444422;
+    text-align: center;
+    color: white;
+    position: relative;
+    width: 250px;
+}
+.nav-link{
+    text-decoration: inherit;
+    color: inherit;
+}
+.ext-link{
+    text-decoration: none;
+    color:black;
+    border-bottom: 1px solid black;
+    
+}
+.ext-link:hover{
+    background-color: #33331a;
+    color: white;
+    
+}
+.nav-link:hover{
+     color:black;
+}
+#main-doc{
+    background-color: #eeeedd;
+    grid-area: 2/2/1/8;
+    padding: 10px;
+}
+#navheader{
+    font-weight: lighter;
+    font-size: 12px;
+    height: 50px;
+    padding: 10px;
+    background-color:#33331a;
+    color: white;
+    position: fixed;
+    width: 250px;
+}
+#nav-container{
+    text-decoration: none;
+    list-style: none;
+    padding: 0px;
+    background-color: #33331a;
+    margin-top: 50px;
+    position:fixed;
+    padding-bottom: 80px;
+    overflow-y: auto;
+    width: 250px;
+    display: block;
+    height: 100%;
+}
+#nav-container > li{
+    height: 40px;
+    padding: 10px;
+    background-color: #666633;
+    border-bottom: 1px solid black;
+    
+}
+#nav-container > li:hover{
+    background-color: #eeeedd;
+    cursor: pointer;
+    color: #111109 !important;
+}
+header{
+    color:#33331a;
+    text-align: center;
+}
+
+
+
+.main-section{
+    display: block;
+   padding-bottom: 40px;
+    position: relative
+
+}
+
+
+@media screen and (max-width:650px) {
+    .container{
+        display: block;
+    }
+  #main-doc{
+        
+
+    }
+    #navbar{
+    background-color: red;
+    background-color: #444422;
+    text-align: center;
+    color: white;
+    position: relative;
+    width: 100%;
+    height: 250px;
+        z-index: +10
+}
+    #nav-container{
+        height: 200px;
+        width: 100%;
+        padding-bottom: 5px;
+    }
+    #navheader{
+        width: 100%;
+    }
+}
+
